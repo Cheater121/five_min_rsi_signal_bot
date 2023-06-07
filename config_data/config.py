@@ -5,7 +5,7 @@ from environs import Env
 @dataclass
 class TgBot:
     token: str
-    chats: list[int]
+    chats: list
 
 
 @dataclass
