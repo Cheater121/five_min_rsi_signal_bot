@@ -30,7 +30,7 @@ def rsi_notification(stock, bot):
                              parse_mode="HTML", reply_markup=bot.keyboard1)
             sleep(4)
         # attention to buy
-        if old_rsi and old_rsi > 20 > current_rsi:
+        if old_rsi and old_rsi > 30 > current_rsi:
             attention = "\U000026A0"
             print(f'RSI is oversold ({current_rsi}), be careful!')
             bot.send_message(bot.chat_id,
@@ -39,7 +39,7 @@ def rsi_notification(stock, bot):
                              parse_mode="HTML", reply_markup=bot.keyboard1)
             sleep(4)
         # buy
-        if old_rsi and old_rsi < 20 < current_rsi:
+        if old_rsi and old_rsi < 30 < current_rsi:
             attention = "\U0000203C"
             print(f'RSI cross upward 20 ({current_rsi}), time to buy!')
             bot.send_message(bot.chat_id,
