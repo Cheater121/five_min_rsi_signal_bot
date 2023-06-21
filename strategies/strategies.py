@@ -44,10 +44,10 @@ def rsi_notification(stock, bot, chats):
         # buy
         if old_rsi and old_rsi < 30 < current_rsi:
             attention = "\U0000203C"
-            print(f'RSI cross upward 20 ({current_rsi}), time to buy!')
+            print(f'RSI cross upward 30 ({current_rsi}), time to buy!')
             for chat in chats:
                 bot.send_message(chat,
-                             f"{attention}${stock.ticker} <b>RSI</b> cross upward 20 ({round(current_rsi, 2)}), "
+                             f"{attention}${stock.ticker} <b>RSI</b> cross upward 30 ({round(current_rsi, 2)}), "
                              f"time to buy!\U0001F7E2{attention}",
                              parse_mode="HTML", reply_markup=bot.keyboard1)
                 sleep(4)
