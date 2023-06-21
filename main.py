@@ -30,8 +30,8 @@ def start_handler(message):
                 for stock in stocks_list:
                     sleep(1)  # Delay for Tinkoff API
                     stock.get_new_prices()
-                    rsi_notification(stock, bot)
-            sleep(60)
+                    rsi_notification(stock, bot, chats)
+            sleep(1)
     except Exception as e:
         logger.exception(f"Exception in start handler: \n{e}\n")
 
