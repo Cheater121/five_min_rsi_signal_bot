@@ -13,7 +13,7 @@ def rsi_notification(stock, bot, chats):
         old_rsi = stock.old_levels.get("RSI")
         current_rsi = stock.levels.get("RSI")
         # attention to sell
-        if old_rsi and old_rsi < 80 < current_rsi:
+        if old_rsi and old_rsi < 75 < current_rsi:
             attention = "\U000026A0"
             print(f'RSI is overbought ({current_rsi}), be careful!')
             for chat in chats:
@@ -23,16 +23,16 @@ def rsi_notification(stock, bot, chats):
                              parse_mode="HTML", reply_markup=bot.keyboard1)
                 sleep(4)
         # sell
-        if old_rsi and old_rsi > 80 > current_rsi:
+        if old_rsi and old_rsi > 75 > current_rsi:
             attention = "\U0000203C"
-            print(f'RSI cross downward 80 ({current_rsi}), time to sell!')
+            print(f'RSI cross downward 75 ({current_rsi}), time to sell!')
             for chat in chats:
                 bot.send_message(chat,
-                             f"{attention}${stock.ticker} <b>RSI</b> cross downward 80 ({round(current_rsi, 2)}), time to sell!\U0001F534{attention}",
+                             f"{attention}${stock.ticker} <b>RSI</b> cross downward 75 ({round(current_rsi, 2)}), time to sell!\U0001F534{attention}",
                              parse_mode="HTML", reply_markup=bot.keyboard1)
                 sleep(4)
         # attention to buy
-        if old_rsi and old_rsi > 30 > current_rsi:
+        if old_rsi and old_rsi > 25 > current_rsi:
             attention = "\U000026A0"
             print(f'RSI is oversold ({current_rsi}), be careful!')
             for chat in chats:
@@ -42,12 +42,12 @@ def rsi_notification(stock, bot, chats):
                              parse_mode="HTML", reply_markup=bot.keyboard1)
                 sleep(4)
         # buy
-        if old_rsi and old_rsi < 30 < current_rsi:
+        if old_rsi and old_rsi < 25 < current_rsi:
             attention = "\U0000203C"
-            print(f'RSI cross upward 30 ({current_rsi}), time to buy!')
+            print(f'RSI cross upward 25 ({current_rsi}), time to buy!')
             for chat in chats:
                 bot.send_message(chat,
-                             f"{attention}${stock.ticker} <b>RSI</b> cross upward 30 ({round(current_rsi, 2)}), "
+                             f"{attention}${stock.ticker} <b>RSI</b> cross upward 25 ({round(current_rsi, 2)}), "
                              f"time to buy!\U0001F7E2{attention}",
                              parse_mode="HTML", reply_markup=bot.keyboard1)
                 sleep(4)
