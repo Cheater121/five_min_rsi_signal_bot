@@ -20,7 +20,7 @@ class StockAnalyzer:
         self.old_levels = {"RSI": None}
         self.levels = {"RSI": None}
 
-    def get_new_prices(self, interval=CandleInterval.CANDLE_INTERVAL_5_MIN, days=4):
+    def get_new_prices(self, interval=CandleInterval.CANDLE_INTERVAL_1_MIN, days=1):
         try:
             with Client(TCS_TOKEN) as client:
                 close_prices = []
