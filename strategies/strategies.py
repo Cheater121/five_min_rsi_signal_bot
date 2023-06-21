@@ -3,7 +3,7 @@ from errors.setup_logger import logger
 from time import sleep
 
 
-def rsi_notification(stock, bot):
+def rsi_notification(stock, bot, chats):
     try:
         bot.keyboard1 = types.InlineKeyboardMarkup()
         url_btn = types.InlineKeyboardButton(text=f"{stock.ticker}",
@@ -16,38 +16,42 @@ def rsi_notification(stock, bot):
         if old_rsi and old_rsi < 80 < current_rsi:
             attention = "\U000026A0"
             print(f'RSI is overbought ({current_rsi}), be careful!')
-            bot.send_message(bot.chat_id,
+            for chat in chats:
+                bot.send_message(chat,
                              f"{attention}${stock.ticker} <b>RSI</b> is overbought ({round(current_rsi, 2)}), "
                              f"be careful!{attention}",
                              parse_mode="HTML", reply_markup=bot.keyboard1)
-            sleep(4)
+                sleep(4)
         # sell
         if old_rsi and old_rsi > 80 > current_rsi:
             attention = "\U0000203C"
             print(f'RSI cross downward 80 ({current_rsi}), time to sell!')
-            bot.send_message(bot.chat_id,
+            for chat in chats:
+                bot.send_message(chat,
                              f"{attention}${stock.ticker} <b>RSI</b> cross downward 80 ({round(current_rsi, 2)}), time to sell!\U0001F534{attention}",
                              parse_mode="HTML", reply_markup=bot.keyboard1)
-            sleep(4)
+                sleep(4)
         # attention to buy
         if old_rsi and old_rsi > 30 > current_rsi:
             attention = "\U000026A0"
             print(f'RSI is oversold ({current_rsi}), be careful!')
-            bot.send_message(bot.chat_id,
+            for chat in chats:
+                bot.send_message(bot.chat_id,
                              f"{attention}${stock.ticker} <b>RSI</b> is oversold ({round(current_rsi, 2)}), be "
                              f"careful!{attention}",
                              parse_mode="HTML", reply_markup=bot.keyboard1)
-            sleep(4)
+                sleep(4)
         # buy
         if old_rsi and old_rsi < 30 < current_rsi:
             attention = "\U0000203C"
             print(f'RSI cross upward 20 ({current_rsi}), time to buy!')
-            bot.send_message(bot.chat_id,
+            for chat in chats:
+                bot.send_message(chat,
                              f"{attention}${stock.ticker} <b>RSI</b> cross upward 20 ({round(current_rsi, 2)}), "
                              f"time to buy!\U0001F7E2{attention}",
                              parse_mode="HTML", reply_markup=bot.keyboard1)
-            sleep(4)
-        stock.old_levels["RSI"] = stock.levels["RSI"]
+                sleep(4)
+        stock.old_levels["RSI"] = stock.levels.get("RSI")
     except Exception as e:
         logger.exception(f"Exception in rsi method: \n{e}\n")
     
