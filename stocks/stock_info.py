@@ -1,11 +1,11 @@
+from datetime import timedelta
+
 from tinkoff.invest import CandleInterval, Client
 from tinkoff.invest.utils import now
-from datetime import datetime, timedelta
 
+from config_data.config import load_config
 from errors.setup_logger import logger
 from strategies.rsi import get_current_rsi
-from config_data.config import load_config
-
 
 config = load_config()
 
@@ -42,7 +42,6 @@ class StockAnalyzer:
             logger.exception(f"Exception in update prices method: \n{e}\n")
 
 
-
 ozon = StockAnalyzer("BBG00Y91R9T3", "OZON")
 sber = StockAnalyzer("BBG004730N88", "SBER")
 sgzh = StockAnalyzer("BBG0100R9963", "SGZH")
@@ -66,4 +65,3 @@ moex = StockAnalyzer("BBG004730JJ5", "MOEX")
 
 stocks_list = [ozon, sber, sgzh, poly, vkco, tatn, nvtk, spbe, nlmk, pikk, five, afks, yndx, rosn, alrs, gmkn, aflt,
                gazp, lkoh, moex]
-               

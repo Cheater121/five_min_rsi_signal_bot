@@ -22,7 +22,8 @@ bot.update_switcher = True
 def start_handler(message):
     try:
         bot.send_message(message.chat.id,
-                         f"Hello! Prepare for spam. To stop it use '/stop' command. And '/help' for all commands. Your chat id is {message.chat.id}")
+                         f"Hello! Prepare for spam. To stop it use '/stop' command. And '/help' for all commands. "
+                         f"Your chat id is {message.chat.id}")
         bot.chat_id = message.chat.id
         bot.update_switcher = True
         while bot.update_switcher:
