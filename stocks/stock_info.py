@@ -88,6 +88,7 @@ magn = StockAnalyzer('BBG004S68507', 'MAGN')
 lsrg = StockAnalyzer('BBG004S68C39', 'LSRG')
 sftl = StockAnalyzer('BBG0136BTL03', 'SFTL')
 uwgn = StockAnalyzer('BBG008HD3V85', 'UWGN')
+carm = StockAnalyzer('TCS00A105NV2', 'CARM')
 
-stocks_list = [ozon, sber, sgzh, poly, vkco, nvtk, spbe, nlmk, pikk, afks, yndx, rosn, alrs, gmkn, aflt, gazp, lkoh, moex, svav, cian, fixp, chmf, smlt, wush, vtbr, etln, kmaz, mtss, bspb, mtlr, rasp, geco, reni, flot, rnft, rual, irao, fees, tcsg, posi, magn, lsrg, sftl, uwgn]
+stocks_list = [ozon, sber, sgzh, poly, vkco, nvtk, spbe, nlmk, pikk, afks, yndx, rosn, alrs, gmkn, aflt, gazp, lkoh, moex, svav, cian, fixp, chmf, smlt, wush, vtbr, etln, kmaz, mtss, bspb, mtlr, rasp, geco, reni, flot, rnft, rual, irao, fees, tcsg, posi, magn, lsrg, sftl, uwgn, carm]
                
