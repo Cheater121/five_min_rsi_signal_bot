@@ -18,7 +18,7 @@ bot = telebot.TeleBot(TG_5MIN_TOKEN)
 bot.update_switcher = True
 
 
-@bot.message_handler(is_admin=True, chat_id=chats, commands=['start'])
+@bot.message_handler(is_chat_admin=True, chat_id=chats, commands=['start'])
 def start_handler(message):
     try:
         bot.send_message(message.chat.id,
@@ -36,7 +36,7 @@ def start_handler(message):
         logger.exception(f"Exception in start handler: \n{e}\n")
 
 
-@bot.message_handler(is_admin=True, chat_id=chats, commands=['stop'])
+@bot.message_handler(is_chat_admin=True, chat_id=chats, commands=['stop'])
 def stop_handler(message):
     try:
         bot.send_message(message.chat.id, "Bye bye! To start use '/start'.")
@@ -45,7 +45,7 @@ def stop_handler(message):
         logger.exception(f"Exception in stop handler: \n{e}\n")
 
 
-@bot.message_handler(is_admin=True, chat_id=chats, commands=['status'])
+@bot.message_handler(is_chat_admin=True, chat_id=chats, commands=['status'])
 def status_checker(message):
     try:
         if bot.update_switcher is True:
