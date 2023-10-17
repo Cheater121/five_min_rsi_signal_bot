@@ -26,7 +26,7 @@ class StockAnalyzer:
                 close_prices = []
                 for candle in client.get_all_candles(figi=self.figi, from_=now() - timedelta(days=days),
                                                      interval=interval):
-                    print(candle, "\n")
+                    # print(candle, "\n")
                     close_price = candle.close.units + candle.close.nano / (10 ** 9)
                     close_prices.append(close_price)
                 self._update_prices(close_prices)
