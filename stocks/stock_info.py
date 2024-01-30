@@ -90,6 +90,12 @@ sftl = StockAnalyzer('BBG0136BTL03', 'SFTL')
 uwgn = StockAnalyzer('BBG008HD3V85', 'UWGN')
 carm = StockAnalyzer('TCS00A105NV2', 'CARM')
 astr = StockAnalyzer('RU000A106T36', 'ASTR')
+eutr = StockAnalyzer('TCS00A1002V2', 'EUTR')
+ugld = StockAnalyzer('TCS00A0JPP37', 'UGLD')
+mgkl = StockAnalyzer('TCS00A0JVJQ8', 'MGKL')
+hnfg = StockAnalyzer('TCS00A106XF2', 'HNFG')
+astr = StockAnalyzer('RU000A106T36', 'ASTR')
 
-stocks_list = [ozon, sber, sgzh, poly, vkco, nvtk, spbe, nlmk, pikk, afks, yndx, rosn, alrs, gmkn, aflt, gazp, lkoh, moex, svav, cian, fixp, chmf, smlt, wush, vtbr, etln, kmaz, mtss, bspb, mtlr, rasp, geco, reni, flot, rnft, rual, irao, fees, tcsg, posi, magn, lsrg, sftl, uwgn, carm, astr]
+
+stocks_list = [ozon, sber, sgzh, poly, vkco, nvtk, spbe, nlmk, pikk, afks, yndx, rosn, alrs, gmkn, aflt, gazp, lkoh, moex, svav, cian, fixp, chmf, smlt, wush, vtbr, etln, kmaz, mtss, bspb, mtlr, rasp, geco, reni, flot, rnft, rual, irao, fees, tcsg, posi, magn, lsrg, sftl, uwgn, carm, astr, hnfg, mgkl, ugld, eutr]
                
